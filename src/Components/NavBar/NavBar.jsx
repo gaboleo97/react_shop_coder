@@ -1,9 +1,12 @@
 
 // CSS
+import logo from '../../logo.png';
 import "./NavBar.css";
 // COMPONENTS
 import CartWidget from '../CartWidget/CartWidget';
 import { NavItem } from 'react-bootstrap';
+import { ItemLi } from "./ItemLi";
+import { ItemLiDropdown } from "./ItemLiDropdown";
 // DEPENDENCYS
 
 
@@ -13,20 +16,19 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className="header__nav">
+            <nav className="navbar navbar-expand-lg header__nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src={logo} alt="" /></a>
+                    <ul className="header__ul navbar-nav me-auto mb-2 mb-lg-0">
+                        <ItemLi href={"/"}> Inicio  </ItemLi>
+                        <ItemLi href={"/"}> Productos </ItemLi>
+                        <ItemLiDropdown href={"#"} hrefItem={"/"} dropdownItem={"Pelotas"} >Categorias</ItemLiDropdown>
+                        <ItemLi href={"/"}> Categorias  </ItemLi>
+                        <ItemLi href={"/"}> <CartWidget></CartWidget>  </ItemLi>
+                    </ul>
+                </div>
 
-                <ul className="header__ul">
-                    <li to="/" className="header__li">Home</li>
-                    <li to="/Products" className="header__li">Productos</li>
-                    <li to="/Products"></li>
-                    <li to="/About" className="header__li">Categorias</li>
-                    
-
-                    {
-                        <li to="/Cart" className="header__li"><CartWidget /></li>
-                    }
-                </ul>
-            </nav>           
+            </nav>
         </>
 
 

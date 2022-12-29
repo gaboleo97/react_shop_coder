@@ -29,5 +29,5 @@
 }
 
 .header__li:hover {
-    color: #61d9fb;
+    color: #61d9fb !important;
 }
