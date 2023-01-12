@@ -1,13 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+//componentes
 import { NavBar } from "./Components/NavBar/NavBar";
 import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
 import { Card } from './Components/Card/Card';
+//dependencias
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
+//services
+import { getProductById, getProducts, getProductos, getProductByCategory} from "./service/asyncMock"
+
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <NavBar/> 
+        <BrowserRouter>
+          <NavBar/> 
+          <Routes>
+            <Route path='/productos' element={<ItemListContainer/>} />
+            <Route path='/productos:itemid' element={<ItemDetailContainer/>} />
+            <Route path="/category/:categoryid" element={<ItemListContainer />} />
+          </Routes>
+        </BrowserRouter>
+        
+
+        
+      
       <br></br>
       <div className='container-fluid'>
         <div className='row'>
@@ -27,7 +46,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <ItemListContainer text="Bienvenidos a mi tienda"></ItemListContainer>
+        
         <a
           className="App-link"
           href="https://reactjs.org"
