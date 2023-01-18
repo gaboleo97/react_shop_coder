@@ -47,9 +47,14 @@ export const ItemListContainer = () => {
 
     return (
         <>
-            {items.map((itemIterado) => {
-                return <Item key={itemIterado.id} item={itemIterado} />;
-            })}
+            <div className='container-fluid'>
+                <div className='row'>
+                    {items.map((itemIterado) => {
+                        return <Item key={itemIterado.id} item={itemIterado} />;
+                    })}
+                </div>
+            </div>
+
         </>
     )
 }

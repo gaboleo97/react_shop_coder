@@ -1,39 +1,39 @@
 import { useEffect, useState } from "react"
-import { BsChevronDoubleLeft } from "react-icons/bs"
-import { getProductById, getProducts, getProductos , getCity} from "../../service/asyncMock"
+//import { BsChevronDoubleLeft } from "react-icons/bs"
+import { getProductById} from "../../service/asyncMock"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 
 
 export const ItemDetailContainer = () => {
-    const [city, setCity] = useState({ title: "loading", price: "--,--" });
+    const [producto, setProducto] = useState([]);
 
     let params = useParams();
 
     function handleAddToCart(count) {
         console.log(
-            `Agregaste al carrito ${count} unidades del producto ${city.title}`
+            `Agregaste al carrito ${count} unidades del producto ${producto.title}`
         );
     }
 
     useEffect(() => {
-        getCity(params.itemid)
+        getProductById(params.itemid)
             .then((respuesta) => {
-                setCity(respuesta);
+                setProducto(respuesta);
             })
             .catch((error) => alert(error));
     }, []);
 
+    console.log(producto.img);
     return (
         <ItemDetail
             onAddToCart={handleAddToCart}
-            title={city.title}
-            imgurl={city.imgurl}
-            category={city.category}
-            price={city.price}
+            title={producto.name}
+            img={producto.img}
+            category={producto.category}
+            price={producto.price}
+            description={producto.description}
         />
     );
 }
-
-export default ItemDetailContainer;
 

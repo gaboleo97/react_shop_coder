@@ -3,23 +3,27 @@ import "./Item.css";
 import { Link } from 'react-router-dom'
 
 export const Item = (props) => {
-    const { title, price, imgurl, category, id } = props.item;
+    const { title, price, img, category, id, description } = props.item;
 
+    console.log(props.item);
     return (
-        <div className="item-card">
-            <div className="item-card_header">
-                <h2>{title}</h2>
+        <>
+    <div className='col-3'>
+                <div className="card card__style">
+                    <a href={`/producto/${id}`}><img src={img} className="card-img-top" alt={title} /></a>                    
+                    <div className="card-body">
+                        <h5 className="card-title">{title}</h5>
+                        <p className="card-text">{description}</p>
+                        <p><b>${price}</b></p>
+                        <Link to={`/producto/${id}`}> Ver Mas </Link>
+                    </div>
+                </div>
             </div>
-            <div className="item-card_img">
-                <img src={imgurl} alt={title} />
-            </div>
-            <div className="item-card_detail">
-                <h3 className="item-card_price">$ {price}</h3>
-                <small>{category}</small>
-            </div>
-            <Link to={`/productos/${id}`}>Ver Mas </Link>
-            <br></br>
-        </div>
+
+
+
+        </>
+        
     );
 }
 

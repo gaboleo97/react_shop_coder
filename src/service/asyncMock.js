@@ -80,14 +80,15 @@ export const listProducts = [
 }
 */
 
-/*
+
 export const getProductById = (id) => {
 	return new Promise((resolve) => {
 		const reqItem = listProducts.find((product) => product.id === parseInt(id))
 			resolve(reqItem);
 		})		
 }
-*/
+
+/*
 export const getCity = (idURL) => {
 	return new Promise((resolve, reject) => {
 		const reqItem = listProducts.find((item) => {
@@ -100,7 +101,7 @@ export const getCity = (idURL) => {
 		}, 2000);
 	});
 };
-
+*/
 export const getProductByCategory = (categoria) => {
 	return new Promise((resolve) => {
 		let reqItems = listProducts.filter((product) => product.category === categoria);

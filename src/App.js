@@ -19,7 +19,7 @@ function App() {
           <NavBar/> 
           <Routes>
             <Route path='/productos' element={<ItemListContainer/>} />
-            <Route path='/productos:itemid' element={<ItemDetailContainer/>} />
+            <Route path='/producto/:itemid' element={<ItemDetailContainer/>} />
             <Route path="/category/:categoryid" element={<ItemListContainer />} />
           </Routes>
         </BrowserRouter>
@@ -28,6 +28,7 @@ function App() {
         
       
       <br></br>
+{/*       
       <div className='container-fluid'>
         <div className='row'>
             <Card img={logo} title={"Card 1"} href={"/"} description={"Descripcion card 1"} btn={"Comprar"} price={"$1000"} ></Card>
@@ -39,7 +40,7 @@ function App() {
             <Card img={logo} title={"Card 7"} href={"/"} description={"Descripcion card 7"} btn={"Comprar"} price={"$7000"} ></Card>
             <Card img={logo} title={"Card 8"} href={"/"} description={"Descripcion card 8"} btn={"Comprar"} price={"$8000"} ></Card>
         </div>
-      </div>
+      </div> */}  
 
 
         <img src={logo} className="App-logo" alt="logo" />
